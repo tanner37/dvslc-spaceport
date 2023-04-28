@@ -305,6 +305,8 @@ clean = Cleaner(tags=ALLOWED_TAGS).clean
 
 def is_request_from_protospace(request):
     # TODO: pull to config
+    return True
+
     whitelist = ['24.66.110.96', '205.233.15.76', '205.233.15.69', '70.75.142.145']
 
     if settings.DEBUG:
