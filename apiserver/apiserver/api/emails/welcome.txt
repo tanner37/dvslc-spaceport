@@ -2,14 +2,14 @@ Hi [name],
 
 You just signed up to Spaceport with the username: [username]
 
-To manage your Protospace membership go to:
-https://my.protospace.ca
+To manage your Valley Makerspace membership go to:
+https://my.dvslc.ca
 
-You have automatically been added to our forum Spacebar at:
-https://forum.protospace.ca
+Please sign up to our forum at:
+https://forum.dvslc.ca
 
-Please introduce yourself here:
-https://forum.protospace.ca/c/chattymcchatface/new-user-introductions/31
+You can introduce yourself here:
+https://forum.dvslc.ca/c/general/introductions/5
 
 If you have any questions, you will get the fastest response there.
 
@@ -24,7 +24,7 @@ You can meet members Tuesday evenings during our open house.
 Mark [date] on your calendar as the day you can get vetted.
 
 Sign up for a New Member Orientation here:
-https://my.protospace.ca/classes
+https://my.dvslc.ca/classes
 
 Good luck,
 Spaceport
