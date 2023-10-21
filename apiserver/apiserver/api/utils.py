@@ -144,7 +144,8 @@ def gen_search_strings():
         )
 
         string += ' | ' + m.user.email
-        string += ' | ' + m.discourse_username
+        if m.discourse_username:
+            string += ' | ' + m.discourse_username
         string += ' | ' + str(m.id)
 
         string = string.lower()
