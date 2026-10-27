@@ -344,7 +344,7 @@ export function MemberDetail(props) {
 							<AdminMemberCards result={result} refreshResult={refreshResult} {...props} />
 						</Segment>}
 
-						{isAdmin(user) && <Segment padded>
+						{false && isAdmin(user) && <Segment padded>
 							<AdminMemberCertifications result={result} refreshResult={refreshResult} {...props} />
 						</Segment>}
 

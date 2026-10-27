@@ -120,11 +120,12 @@ export function Training(props) {
 				<p>No training yet! Sign up for a course to take a class.</p>
 			}
 
-			<Header size='large'>Your Certifications</Header>
+			{false && <> <Header size='large'>Your Certifications</Header>
 
 			<CertList member={user.member} />
 
 			<p>Certifications are based on the courses you've taken. If there's any errors, please email <a href='mailto:directors@protospace.ca'>directors@protospace.ca</a>.</p>
+			</>}
 		</Container>
 	);
 };
