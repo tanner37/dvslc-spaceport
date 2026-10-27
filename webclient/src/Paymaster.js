@@ -82,15 +82,15 @@ export function Paymaster(props) {
 	const [donate, setDonate] = useState('20.00');
 	const [memo, setMemo] = useState('');
 
-	const monthly_fees = user.member.monthly_fees || 55;
+	const monthly_fees = user.member.monthly_fees || 50;
 
 	return (
 		<Container>
 			<Header size='large'>Paymaster</Header>
-			<p>Use these buttons to send money to Protospace.</p>
+			<p>Use these buttons to send money to DVSLC Makerspace.</p>
 
-			<Header size='medium'>Protocoin</Header>
-			<p>Protocoin is used to buy things from Protospace's vending machines. No cash value.</p>
+			{false && <><Header size='medium'>Protocoin</Header>
+			<p>Protocoin is used to buy things from DVSLC Makerspace's vending machines. No cash value.</p>
 
 			<p>Current balance: ₱&thinsp;{user.member.protocoin.toFixed(2)}</p>
 
@@ -112,7 +112,7 @@ export function Paymaster(props) {
 
 					<PayPalPayNow
 						amount={buyProtocoin}
-						name='Protospace Protocoin'
+						name='DVSLC Makerspace Protocoin'
 						custom={JSON.stringify({ category: 'Exchange', member: user.member.id })}
 					/>
 
@@ -123,7 +123,7 @@ export function Paymaster(props) {
 					<p>Send Protocoin:</p>
 					<SendProtocoin token={token} user={user} refreshUser={refreshUser} />
 				</Grid.Column>
-			</Grid>
+			</Grid></>}
 
 			<Header size='medium'>Member Dues</Header>
 			<Grid stackable padded columns={3}>
@@ -131,7 +131,7 @@ export function Paymaster(props) {
 					<p>Pay ${monthly_fees}.00 once:</p>
 					<PayPalPayNow
 						amount={monthly_fees}
-						name='Protospace Membership'
+						name='DVSLC Makerspace Membership'
 						custom={JSON.stringify({ member: user.member.id })}
 					/>
 				</Grid.Column>
@@ -140,7 +140,7 @@ export function Paymaster(props) {
 					<p>Subscribe ${monthly_fees}.00 / month:</p>
 					<PayPalSubscribe
 						amount={monthly_fees}
-						name='Protospace Membership'
+						name='DVSLC Makerspace Membership'
 						custom={JSON.stringify({ member: user.member.id })}
 					/>
 				</Grid.Column>
@@ -149,7 +149,7 @@ export function Paymaster(props) {
 					<p>Pay ${monthly_fees * 11}.00 for a year:</p>
 					<PayPalPayNow
 						amount={monthly_fees * 11}
-						name='Protospace Membership'
+						name='DVSLC Makerspace Membership'
 						custom={JSON.stringify({ deal: 12, member: user.member.id })}
 					/>
 					<p>...get one month for free!</p>
@@ -185,7 +185,7 @@ export function Paymaster(props) {
 
 					<PayPalPayNow
 						amount={consumables}
-						name='Protospace Consumables'
+						name='DVSLC Makerspace Consumables'
 						custom={JSON.stringify({ category: 'Consumables', member: user.member.id, memo: consumablesMemo })}
 					/>
 				</Grid.Column>
@@ -218,13 +218,13 @@ export function Paymaster(props) {
 
 					<PayPalPayNow
 						amount={donate}
-						name='Protospace Donation'
+						name='DVSLC Makerspace Donation'
 						custom={JSON.stringify({ category: 'Donation', member: user.member.id, memo: memo })}
 					/>
 				</Grid.Column>
 			</Grid>
 
-			<Header size='medium'>Locker Storage</Header>
+			{false && <><Header size='medium'>Locker Storage</Header>
 
 			<p>Confirm location and availability with <Link to='/members/392'>Scott Young</Link> before subscribing.</p>
 
@@ -244,11 +244,11 @@ export function Paymaster(props) {
 
 					<PayPalSubscribe
 						amount={locker}
-						name='Protospace Locker'
+						name='DVSLC Makerspace Locker'
 						custom={JSON.stringify({ memo: 'Locker Rental', category: 'Purchases', member: user.member.id })}
 					/>
 				</Grid.Column>
-			</Grid>
+			</Grid></>}
 		</Container>
 	);
 };
