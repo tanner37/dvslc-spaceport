@@ -39,6 +39,8 @@ PRODUCTION_HOST = 'my.dvslc.ca'
 # production hosts
 ALLOWED_HOSTS = [
     'api.' + PRODUCTION_HOST,
+    'api.my.dvslcmaker.space',
+    'api.dvslc-spaceport.dns.t0.vc',
 ]
 
 if DEBUG:
