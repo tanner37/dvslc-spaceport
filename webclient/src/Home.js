@@ -36,7 +36,7 @@ function MemberInfo(props) {
 					{member.is_allowed_entry ?
 						<></>
 					:
-						<p>You are not allowed entry into Protospace ❌</p>
+						<p>You are not allowed entry into DVSLC Makerspace ❌</p>
 					}
 
 					<BasicTable>
@@ -48,10 +48,10 @@ function MemberInfo(props) {
 									{member.status || 'Unknown'}
 								</Table.Cell>
 							</Table.Row>
-							<Table.Row>
+							{false && <Table.Row>
 								<Table.Cell>Protocoin:</Table.Cell>
 								<Table.Cell>₱&thinsp;{member.protocoin.toFixed(2)} <Link to='/paymaster'>[buy]</Link></Table.Cell>
-							</Table.Row>
+							</Table.Row>}
 							<Table.Row>
 								<Table.Cell>Expiry:</Table.Cell>
 								<Table.Cell>{member.expire_date ? moment(member.expire_date).format('ll') : 'Unknown'}</Table.Cell>
@@ -80,7 +80,7 @@ function MemberInfo(props) {
 				<p>Create a ${user.member.monthly_fees} / month subscription, get your first three months for the price of two:</p>
 				<PayPalSubscribeDeal
 					amount={user.member.monthly_fees}
-					name='Protospace Membership'
+					name='DVSLC Makerspace Membership'
 					custom={JSON.stringify({ deal: 3, member: user.member.id })}
 				/>
 
@@ -261,16 +261,15 @@ export function Home(props) {
 					{user?.member?.set_details !== false &&
 						<Segment>
 							<Header size='medium'>Quick Links</Header>
-							<p><a href='https://protospace.ca/' target='_blank' rel='noopener noreferrer'>Main Website</a></p>
-							<p><a href='https://wiki.protospace.ca/Welcome_to_Protospace' target='_blank' rel='noopener noreferrer'>Protospace Wiki</a> — <Link to='/auth/wiki'>[register]</Link></p>
-							<p><a href='https://forum.protospace.ca' target='_blank' rel='noopener noreferrer'>Forum (Spacebar)</a> — <Link to='/auth/discourse'>[register]</Link></p>
-							{!!user && <p><a href='https://drive.google.com/drive/folders/0By-vvp6fxFekfmU1cmdxaVRlaldiYXVyTE9rRnNVNjhkc3FjdkFIbjBwQkZ3MVVQX2Ezc3M?resourcekey=0-qVLjcYr8ZCmLypdINk2svg' target='_blank' rel='noopener noreferrer'>Google Drive</a></p>}
-							{!!user && isAdmin(user) && <p><a href='https://estancia.hippocmms.ca/' target='_blank' rel='noopener noreferrer'>Property Management Portal</a></p>}
+							<p><a href='https://dvslc.ca/' target='_blank' rel='noopener noreferrer'>Main Website</a></p>
+							{false && <p><a href='https://wiki.protospace.ca/Welcome_to_Protospace' target='_blank' rel='noopener noreferrer'>Protospace Wiki</a> — <Link to='/auth/wiki'>[register]</Link></p>}
+							<p><a href='https://forum.dvslc.ca' target='_blank' rel='noopener noreferrer'>Forum (Discourse)</a> — <Link to='/auth/discourse'>[register]</Link></p>
+							{!!user && <p><a href='https://drive.google.com/drive/folders/1W5L1vdcY1TrWv6HPhiF-lLJXHKlC5120' target='_blank' rel='noopener noreferrer'>Google Drive</a></p>}
 
 							<img className='swordfish' src='/swordfish.png' onClick={() => refreshStats()} />
 
 							<div>
-								<Header size='medium'>Protospace Stats</Header>
+								<Header size='medium'>DVSLC Stats</Header>
 								<p>Next meeting: {getDateStat('next_meeting')}</p>
 								<p>Next clean: {getDateStat('next_clean')}</p>
 								<p className='nowrap-stat'>Next class: {getNextStat('next_class')}</p>
@@ -278,7 +277,7 @@ export function Home(props) {
 								<p>Member count: {getStat('member_count')} <Link to='/charts'>[more]</Link></p>
 								<p>Card scans today: {getZeroStat('card_scans')}</p>
 
-								<p>
+								{false && <p>
 									Minecraft players: {mcPlayers.length} {mcPlayers.length > 5 && '🔥'} <Popup content={
 										<React.Fragment>
 											<p>
@@ -292,7 +291,7 @@ export function Home(props) {
 										</React.Fragment>
 									} trigger={<a>[more]</a>} />
 								{' '}<a href='http://games.protospace.ca:8123/?worldname=world&mapname=flat&zoom=3&x=74&y=64&z=354' target='_blank'>[map]</a>
-								</p>
+								</p>}
 
 								{stats && stats.hasOwnProperty('mumble_users') && <p>
 									Mumble users: {mumbleUsers.length} <Popup content={
@@ -309,7 +308,7 @@ export function Home(props) {
 									} trigger={<a>[more]</a>} />
 								</p>}
 
-								<p>
+								{false && <><p>
 									Trotec availability: {getTrackStat('TROTECS300')} <Popup content={
 										<React.Fragment>
 											<p>
@@ -346,18 +345,18 @@ export function Home(props) {
 											</p>
 										</React.Fragment>
 									} trigger={<a>[more]</a>} />
-								</p>
+								</p></>}
 
 								{user && <p>Alarm status: {alarmStat()}{doorOpenStat()}</p>}
 							</div>
 
-							<SignForm token={token} />
+							{false && <><SignForm token={token} />
 
 							<p>Protogarden:</p>
 
 							<Link to='/garden'>
 								<Image src={staticUrl + '/garden-medium.jpg'} />
-							</Link>
+							</Link></>}
 
 						</Segment>
 					}
